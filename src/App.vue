@@ -1,32 +1,44 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
-  </div>
+  <v-app>
+    <v-app-bar app color="amber accent-3">
+      <div class="d-flex align-center">
+        <v-img
+          alt="Boda Logo"
+          class="shrink mr-2"
+          contain
+          src="./assets/logo.png"
+          transition="scale-transition"
+          width="150"
+        />
+      </div>
+    </v-app-bar>
+
+    <v-main>
+      <v-container>
+        <v-btn @click="openForm" outlined>
+          <span class="mr-4">Confirmar Asistencia</span>
+          <v-icon>mdi-clipboard-edit</v-icon>
+        </v-btn>
+      </v-container>
+      <v-container>
+        <router-view />
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+export default {
+  name: "App",
 
-nav {
-  padding: 30px;
-}
+  data: () => ({
+    //
+  }),
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+  methods: {
+    openForm() {
+      this.$router.push({ name: "confirma_datos" });
+    },
+  },
+};
+</script>
