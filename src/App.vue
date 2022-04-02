@@ -14,12 +14,12 @@
     </v-app-bar>
 
     <v-main>
-      <v-container>
+      <!-- <v-container>
         <v-btn @click="openForm" outlined>
           <span class="mr-4">Confirmar Asistencia</span>
           <v-icon>mdi-clipboard-edit</v-icon>
         </v-btn>
-      </v-container>
+      </v-container> -->
       <v-container>
         <router-view />
       </v-container>
@@ -35,10 +35,10 @@ export default {
     //
   }),
 
-  methods: {
-    openForm() {
-      this.$router.push({ name: "confirma_datos" });
-    },
-  },
+  // methods: {
+  //   openForm() {
+  //     this.$router.push({ name: "confirma_datos" });
+  //   },
+  // },
 };
 </script>

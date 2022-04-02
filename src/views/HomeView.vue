@@ -1,8 +1,9 @@
 <template>
   <v-card outLined :loading="loading">
-    <v-card-title> Lista De Invitados Confirmados </v-card-title>
+    <v-card-title> Confirmacion De Asistencia </v-card-title>
+    <ConfirmaDatos></ConfirmaDatos>
 
-    <v-simple-table dense>
+    <!-- <v-simple-table dense>
       <template v-slot:default>
         <thead>
           <tr>
@@ -19,34 +20,31 @@
           </tr>
         </tbody>
       </template>
-    </v-simple-table>
+    </v-simple-table> -->
   </v-card>
 </template>
 
 <script>
 import { mapState } from "vuex";
+import ConfirmaDatos from "./ConfirmaDatos.vue";
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Home",
-
   data: () => ({
     invitados: [],
     loading: false,
   }),
-
   computed: {
     ...mapState(["url"]),
   },
   mounted() {
     this.getLista();
   },
-
   methods: {
     getLista() {
       this.loading = true;
       const uri =
         "https://confirmacion-asistencia-boda.herokuapp.com/api/confirmacion";
-
       this.axios
         .get(uri)
         .then((response) => {
@@ -57,9 +55,9 @@ export default {
         .catch((error) => {
           console.log(error);
         });
-
       this.loading = false;
     },
   },
+  components: { ConfirmaDatos },
 };
 </script>
